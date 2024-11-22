@@ -1,0 +1,169 @@
+/* style.css */
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('../images/LOGO3.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.navbar {
+    background-color: #6a1b9a; /* Deep purple navbar */
+    border-bottom: 2px solid #4a148c; /* Dark border */
+}
+
+.navbar-brand, .nav-link {
+    color: #0f0f0f!important; /* White text */
+}
+
+.nav-link:hover {
+    color: #FF33DA!important; /* Light purple on hover */
+}
+
+/* Section Styles */
+header {
+    background: linear-gradient(to bottom right, rgba(255, 99, 71, 0.7), rgba(0, 128, 128, 0.7)); /* Tomato to Teal gradient */
+    padding: 20px;
+    text-align: center;
+    color: white;
+    margin: 0;
+}
+
+.main-content {
+    background: linear-gradient(to bottom right, rgba(0, 128, 128, 0.7), rgba(70, 130, 180, 0.7)); /* Teal to SteelBlue gradient */
+    padding: 40px;
+    color: white;
+    margin: 0;
+}
+
+footer {
+    background: linear-gradient(to bottom right, rgba(70, 130, 180, 0.7), rgba(255, 99, 71, 0.7)); /* SteelBlue to Tomato gradient */
+    padding: 20px;
+    text-align: center;
+    color: white;
+    margin: 0;
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: rgba(220, 18, 18, 0.9);
+    border-color: #004085;
+}
+
+/* Form Styles */
+.form-control {
+    border-radius: 0;
+}
+
+/* Template-specific Styles */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+}
+
+.table th,
+.table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.table tbody + tbody {
+    border-top: 2px solid #dee2e6;
+}
+
+.table .table {
+    background-color: #fff;
+}
+
+/* Navbar Styles */
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.7); /* White with transparency */
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:focus {
+    color: rgba(255, 255, 255, 0.9); /* White on hover */
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+    color: #fff; /* White for active link */
+}
+
+.dropdown-menu {
+    background-color: rgba(183, 13, 232, 0.9);
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.mt-4 {
+    margin-top: 1.5rem;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+.pt-4 {
+    padding-top: 1.5rem;
+}
+
+.pb-4 {
+    padding-bottom: 1.5rem;
+}
+
+/* Specific Template Adjustments */
+.login-page, .register-page, .password-reset-page {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-page h1, .register-page h1, .password-reset-page h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .navbar-nav .nav-item {
+        margin: 10px 0;
+    }
+
+    .main-content, footer {
+        padding: 20px;
+    }
+}

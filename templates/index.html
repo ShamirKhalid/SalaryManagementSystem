@@ -1,0 +1,25 @@
+<!-- templates/index.html -->
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to the Salary Management System</h1>
+        <p class="lead">Manage your organization's payroll efficiently and effectively.</p>
+        <hr class="my-4">
+        <p>Use the navigation bar to access various features of the system.</p>
+    </div>
+
+    <!-- Example of listing salary records and linking to approve_salaries -->
+    <h2>Salary Records</h2>
+    <ul>
+        {% for salary_record in salary_records %}
+            <li>
+                {{ salary_record.employee.first_name }} {{ salary_record.employee.last_name }} - 
+                <a href="{% url 'approve_salaries' pk=salary_record.pk %}">Approve</a> | 
+                <a href="{% url 'salary_details' pk=salary_record.pk %}">Details</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,38 @@
+<!-- reporting/report_list.html -->
+{% extends 'base.html' %}
+
+{% block title %}Report List{% endblock %}
+
+{% block content %}
+<h1>Report List</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Report Type</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Total Salaries</th>
+            <th>Total Deductions</th>
+            <th>Net Salaries</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for report in reports %}
+        <tr>
+            <td>{{ report.report_type }}</td>
+            <td>{{ report.start_date }}</td>
+            <td>{{ report.end_date }}</td>
+            <td>{{ report.total_salaries }}</td>
+            <td>{{ report.total_deductions }}</td>
+            <td>{{ report.net_salaries }}</td>
+            <td>
+                <a href="{% url 'view_report' pk=report.pk %}" class="btn btn-info">View</a>
+                <a href="{% url 'export_report' pk=report.pk export_format='pdf' %}" class="btn btn-danger">Export PDF</a>
+                <a href="{% url 'export_report' pk=report.pk export_format='excel' %}" class="btn btn-success">Export Excel</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

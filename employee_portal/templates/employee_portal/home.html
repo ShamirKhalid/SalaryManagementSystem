@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Employee Portal</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>Welcome, {{ request.user.first_name }}</h2>
+    <h3>Your Salary Records</h3>
+    <table>
+        <tr>
+            <th>Month</th>
+            <th>Basic Salary</th>
+            <th>Allowances</th>
+            <th>Deductions</th>
+            <th>Net Salary</th>
+        </tr>
+        {% for record in salary_records %}
+        <tr>
+            <td>{{ record.month }}</td>
+            <td>{{ record.basic_salary }}</td>
+            <td>{{ record.allowances }}</td>
+            <td>{{ record.deductions }}</td>
+            <td>{{ record.net_salary }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="{% url 'generate_report' %}">Download Salary Report (PDF)</a>
+    <br>
+    <a href="{% url 'export_csv' %}">Download Salary Records (CSV)</a>
+</body>
+</html>

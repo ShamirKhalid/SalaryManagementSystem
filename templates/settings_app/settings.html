@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Settings{% endblock %}
+
+{% block content %}
+<h1>Settings</h1>
+
+<h2>Tax Rates</h2>
+<ul>
+    {% for tax_rate in tax_rates %}
+        <li>{{ tax_rate.name }} - {{ tax_rate.rate }}</li>
+    {% empty %}
+        <li>No tax rates defined.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'add_tax_rate' %}" class="btn btn-primary">Add Tax Rate</a>
+
+<h2 class="mt-4">Allowances</h2>
+<ul>
+    {% for allowance in allowances %}
+        <li>{{ allowance.name }} - {{ allowance.amount }}</li>
+    {% empty %}
+        <li>No allowances defined.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'add_allowance' %}" class="btn btn-primary">Add Allowance</a>
+{% endblock %}

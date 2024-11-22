@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Report Details</h2>
+  <p>Report Type: {{ report.report_type }}</p>
+  <p>Date Range: {{ report.start_date }} - {{ report.end_date }}</p>
+  <p>Total Salaries Paid: ${{ report.total_salaries }}</p>
+  <p>Total Deductions: ${{ report.total_deductions }}</p>
+  <p>Net Salaries: ${{ report.net_salaries }}</p>
+  
+  <h3>Charts</h3>
+  <img src="data:image/png;base64,{{ chart }}" alt="Salary Distribution">
+  <img src="data:image/png;base64,{{ graph }}" alt="Deductions Over Time">
+  
+  <h3>Export</h3>
+  <a href="{% url 'export_report' report.pk 'pdf' %}" class="btn btn-secondary">Export as PDF</a>
+  <a href="{% url 'export_report' report.pk 'excel' %}" class="btn btn-secondary">Export as Excel</a>
+{% endblock %}

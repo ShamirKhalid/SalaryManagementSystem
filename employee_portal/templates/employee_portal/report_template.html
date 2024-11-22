@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Salary Report</title>
+</head>
+<body>
+    <h2>Salary Report for {{ employee.first_name }} {{ employee.last_name }}</h2>
+        <tr>
+            <th>Month</th>
+            <th>Basic Salary</th>
+            <th>Allowances</th>
+            <th>Deductions</th>
+            <th>Net Salary</th>
+            <th>Approved</th>
+        </tr>
+        {% for record in salary_records %}
+        <tr>
+            <td>{{ record.month|date:"F Y" }}</td>
+            <td>{{ record.basic_salary }}</td>
+            <td>{{ record.allowances }}</td>
+            <td>{{ record.deductions }}</td>
+            <td>{{ record.net_salary }}</td>
+            <td>{{ record.is_approved }}</td>
+        </tr>
+        {% endfor %}
+
+</body>
+</html>

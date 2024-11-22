@@ -1,0 +1,16 @@
+<!-- templates/salary_processing/disburse_salary.html -->
+
+{% extends "base.html" %}
+
+{% block title %}Disburse Salary{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Disburse Salary for {{ salary_record.employee.first_name }} {{ salary_record.employee.last_name }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Disburse</button>
+    </form>
+</div>
+{% endblock %}

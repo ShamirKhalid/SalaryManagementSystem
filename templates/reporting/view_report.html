@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}View Report{% endblock %}
+
+{% block content %}
+<h1>View Report</h1>
+<p><strong>Report Type:</strong> {{ report.report_type }}</p>
+<p><strong>Start Date:</strong> {{ report.start_date }}</p>
+<p><strong>End Date:</strong> {{ report.end_date }}</p>
+<p><strong>Total Salaries:</strong> {{ report.total_salaries }}</p>
+<p><strong>Total Deductions:</strong> {{ report.total_deductions }}</p>
+<p><strong>Net Salaries:</strong> {{ report.net_salaries }}</p>
+
+<h2>Salary Distribution</h2>
+<img src="data:image/png;base64,{{ chart }}" alt="Salary Distribution Chart" />
+
+<h2>Deductions Over Time</h2>
+<img src="data:image/png;base64,{{ graph }}" alt="Deductions Over Time Graph" />
+
+<h3>Salary Records</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Employee</th>
+            <th>Month</th>
+            <th>Basic Salary</th>
+            <th>Allowances</th>
+            <th>Deductions</th>
+            <th>Net Salary</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for record in salary_records %}
+        <tr>
+            <td>{{ record.employee }}</td>
+            <td>{{ record.month }}</td>
+            <td>{{ record.basic_salary }}</td>
+            <td>{{ record.allowances }}</td>
+            <td>{{ record.deductions }}</td>
+            <td>{{ record.net_salary }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3>Employee Details</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Department</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for employee in employees %}
+        <tr>
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.email }}</td>
+            <td>{{ employee.department }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

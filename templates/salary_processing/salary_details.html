@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Salary Details{% endblock %}
+
+{% block content %}
+<h1>Salary Details</h1>
+<p>Employee: {{ salary_record.employee }}</p>
+<p>Month: {{ salary_record.month }}</p>
+<p>Basic Salary: {{ salary_record.basic_salary }}</p>
+<p>Allowances: {{ salary_record.allowances }}</p>
+<p>Deductions: {{ salary_record.deductions }}</p>
+<p>Net Salary: {{ salary_record.net_salary }}</p>
+<p>Approved: {{ salary_record.is_approved }}</p>
+<a href="{% url 'approve_salaries' pk=salary_record.pk %}">Approve</a>
+
+<h2>All Salary Records</h2>
+<table id="salaryRecordsTable" class="display">
+    <thead>
+        <tr>
+            <th>Month</th>
+            <th>Basic Salary</th>
+            <th>Allowances</th>
+            <th>Deductions</th>
+            <th>Net Salary</th>
+            <th>Approved</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for record in salary_records %}
+        <tr>
+            <td>{{ record.month }}</td>
+            <td>{{ record.basic_salary }}</td>
+            <td>{{ record.allowances }}</td>
+            <td>{{ record.deductions }}</td>
+            <td>{{ record.net_salary }}</td>
+            <td>{{ record.is_approved }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- Add DataTables jQuery plugin -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+<script>
+$(document).ready( function () {
+    $('#salaryRecordsTable').DataTable();
+} );
+</script>
+{% endblock %}

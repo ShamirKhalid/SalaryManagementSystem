@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Salary Report</title>
+</head>
+<body>
+    <h2>Your Salary Report</h2>
+    <div>{{ report|safe }}</div>
+    <a href="{% url 'export_report' 'pdf' %}">Export as PDF</a>
+    <a href="{% url 'export_report' 'excel' %}">Export as Excel</a>
+    <a href="{% url 'employee_dashboard' %}">Back to Dashboard</a>
+</body>
+</html>

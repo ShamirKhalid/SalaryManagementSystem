@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <title>Employee Portal</title>
+</head>
+<body>
+    <h2>Welcome, {{ request.user.first_name }}</h2>
+    <h3>Your Salary Records</h3>
+        <tr>
+            <th>Month</th>
+            <th>Basic Salary</th>
+            <th>Allowances</th>
+            <th>Deductions</th>
+            <th>Net Salary</th>
+            <th>Approved</th>
+        </tr>
+        {% for record in salary_records %}
+        <tr>
+            <td>{{ record.month|date:"F Y" }}</td>
+            <td>{{ record.basic_salary }}</td>
+            <td>{{ record.allowances }}</td>
+            <td>{{ record.deductions }}</td>
+            <td>{{ record.net_salary }}</td>
+            <td>{{ record.is_approved }}</td>
+        </tr>
+        {% endfor %}
+    
+    <br>
+<a href="{% url 'employee_portal:generate_report' 'pdf' %}">Generate PDF Report</a>
+    <a href="{% url 'employee_portal:generate_report' 'excel' %}">Generate Excel Report</a>
+    <br><br>
+    <a href="{% url 'employee_auth:employee_logout' %}">Logout</a>
+</body>
+</html>

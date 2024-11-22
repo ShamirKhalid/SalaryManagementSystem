@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title>Report PDF</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ report.report_type }} Report</h1>
+    <p><strong>Start Date:</strong> {{ report.start_date }}</p>
+    <p><strong>End Date:</strong> {{ report.end_date }}</p>
+    <p><strong>Total Salaries:</strong> {{ report.total_salaries }}</p>
+    <p><strong>Total Deductions:</strong> {{ report.total_deductions }}</p>
+    <p><strong>Net Salaries:</strong> {{ report.net_salaries }}</p>
+
+    <h2>Salary Records</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Employee</th>
+                <th>Month</th>
+                <th>Basic Salary</th>
+                <th>Allowances</th>
+                <th>Deductions</th>
+                <th>Net Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in salary_records %}
+            <tr>
+                <td>{{ record.employee }}</td>
+                <td>{{ record.month }}</td>
+                <td>{{ record.basic_salary }}</td>
+                <td>{{ record.allowances }}</td>
+                <td>{{ record.deductions }}</td>
+                <td>{{ record.net_salary }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Employee Details</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Department</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in employees %}
+            <tr>
+                <td>{{ employee.name }}</td>
+                <td>{{ employee.email }}</td>
+                <td>{{ employee.department }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
